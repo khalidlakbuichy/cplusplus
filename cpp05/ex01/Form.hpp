@@ -20,7 +20,7 @@ class Form
         ~Form();
 
         // Getters:
-        std::string getName() const;
+        const std::string &getName() const;
         bool getSigned() const;
         int getSignGrade() const;
         int getExecGrade() const;

@@ -21,7 +21,7 @@ Form &Form::operator=(const Form &other)
 Form::~Form() {};
 
 // Getters:
-std::string Form::getName() const { return (_name); }
+const std::string &Form::getName() const { return (_name); }
 bool Form::getSigned() const { return (_signed); }
 int Form::getSignGrade() const { return (_signGrade); }
 int Form::getExecGrade() const { return (_execGrade); }
@@ -42,7 +42,7 @@ void Form::signForm(const Bureaucrat &bureaucrat)
     }
     catch (std::exception &e)
     {
-        std::cerr << bureaucrat.getName() << " cannot sign " << _name << " because " << e.what() << std::endl;
+        std::cerr << bureaucrat.getName() << " couldn't sign < " << _name << " because " << e.what() << std::endl;
     }
 }
 

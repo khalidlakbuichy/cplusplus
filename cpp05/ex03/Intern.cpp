@@ -16,10 +16,7 @@ Intern::~Intern() {}
 
 AForm *Intern::makeForm(const std::string formName, const std::string target)
 {
-    std::string formNames[3];
-    formNames[0] = "robotomy request";
-    formNames[1] = "shrubbery creation";
-    formNames[2] = "presidential pardon";
+    std::string formNames[3] = {"robotomy request", "shrubbery creation", "presidential pardon"};
 
     AForm *forms[3];
     forms[0] = new RobotomyRequestForm(target);

@@ -20,7 +20,7 @@ class Bureaucrat
         ~Bureaucrat();
 
         // Getters:
-        std::string getName() const;
+        const std::string &getName() const;
         int getGrade() const;
 
         // Methods:
