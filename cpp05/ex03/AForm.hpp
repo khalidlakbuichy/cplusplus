@@ -18,7 +18,7 @@ class AForm
         AForm(const std::string name, int signGrade, int execGrade);
         AForm(const AForm &copy);
         AForm &operator=(const AForm &op);
-        ~AForm();
+        virtual ~AForm();
 
         // Getters:
         std::string getName() const;

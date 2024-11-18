@@ -85,8 +85,8 @@ int main (void)
 
     // Trying to test the exceptions in the signForm method:
     std::cout << BOLD "Trying to test the exceptions in the signForm method:" RESET << std::endl;
-    f1.signForm(b2);
-    f2.signForm(b1);
-    f3.signForm(b3);
+    b1.signForm(f1);
+    b2.signForm(f2);
+    b3.signForm(f3);
 
 }

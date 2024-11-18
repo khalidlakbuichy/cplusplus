@@ -5,7 +5,7 @@
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
-class Form;
+class AForm;
 class Bureaucrat
 {
     private:
@@ -27,6 +27,8 @@ class Bureaucrat
         // Methods:
         void incrementGrade();
         void decrementGrade();
+        void signForm(AForm &form);
+        void executeForm(AForm const &form);
 
         // Exceptions:
         class GradeTooHighException : public std::exception
@@ -40,7 +42,7 @@ class Bureaucrat
                 virtual const char *what() const throw();
         };
 
-        void executeForm(AForm const &form);
+
 };
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat);

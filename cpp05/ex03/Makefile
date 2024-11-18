@@ -1,18 +1,19 @@
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+DEBUG = -g3 -fsanitize=address
 
-SRCS = AForm.cpp  Bureaucrat.cpp  main.cpp  PresidentialPardonForm.cpp  RobotomyRequestForm.cpp  ShrubberyCreationForm.cpp
+SRCS = AForm.cpp  Bureaucrat.cpp  main.cpp  PresidentialPardonForm.cpp  RobotomyRequestForm.cpp  ShrubberyCreationForm.cpp Intern.cpp
 OBJS = $(SRCS:.cpp=.o)
 
-NAME = AForm
+NAME = Intern
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
+	$(CXX) $(CXXFLAGS) $(DEBUG) -o $(NAME) $(OBJS)
 
 %.o: %.cpp
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) $(DEBUG) -c $< -o $@
 
 clean:
 	@rm -f $(OBJS)

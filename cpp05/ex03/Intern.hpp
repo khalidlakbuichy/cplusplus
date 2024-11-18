@@ -9,6 +9,9 @@
 
 class Intern
 {
+    private:
+    AForm *forms[3];
+    
     public:
         // Canonical form:
         Intern();
@@ -24,7 +27,7 @@ class Intern
         };
 
         // Methods:
-        AForm *makeForm(const std::string formName, const std::string target);
+        AForm *makeForm(const std::string &formName, const std::string &target);
 };
 
 #endif

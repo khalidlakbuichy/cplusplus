@@ -33,8 +33,6 @@ void Form::beSigned(const Bureaucrat &bureaucrat)
         throw Form::GradeTooLowException();
     _signed = true;
 }
-// This method must be in the buggrat class:
-
 
 // Exceptions:
 const char *Form::GradeTooHighException::what() const throw() { return ("Grade is too high"); }

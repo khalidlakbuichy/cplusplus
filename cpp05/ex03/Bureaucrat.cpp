@@ -38,11 +38,19 @@ void Bureaucrat::decrementGrade()
     _grade++;
 }
 
-// Exceptions:
-const char *Bureaucrat::GradeTooHighException::what() const throw() { return ("Grade is too high"); }
-const char *Bureaucrat::GradeTooLowException::what() const throw() { return ("Grade is too low"); }
+void Bureaucrat::signForm(AForm &form)
+{
+    try
+    {
+        form.beSigned(*this);
+        std::cout << _name << " signed " << form.getName() << std::endl;
+    }
+    catch (AForm::GradeTooLowException &e)
+    {
+        std::cout << _name << " couldn't sign  " << form.getName() << " because " << e.what() << std::endl;
+    }
+}
 
-// Methods:
 void Bureaucrat::executeForm(AForm const &form)
 {
     try
@@ -55,6 +63,10 @@ void Bureaucrat::executeForm(AForm const &form)
         std::cerr << _name << " cannot execute " << form.getName() << " because " << e.what() << std::endl;
     }
 }
+
+// Exceptions:
+const char *Bureaucrat::GradeTooHighException::what() const throw() { return ("Grade is too high"); }
+const char *Bureaucrat::GradeTooLowException::what() const throw() { return ("Grade is too low"); }
 
 // Operator overloads:
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat)
