@@ -33,18 +33,8 @@ void Form::beSigned(const Bureaucrat &bureaucrat)
         throw Form::GradeTooLowException();
     _signed = true;
 }
-void Form::signForm(const Bureaucrat &bureaucrat)
-{
-    try
-    {
-        beSigned(bureaucrat);
-        std::cout << bureaucrat.getName() << " signs " << _name << std::endl;
-    }
-    catch (std::exception &e)
-    {
-        std::cerr << bureaucrat.getName() << " couldn't sign < " << _name << " because " << e.what() << std::endl;
-    }
-}
+// This method must be in the buggrat class:
+
 
 // Exceptions:
 const char *Form::GradeTooHighException::what() const throw() { return ("Grade is too high"); }

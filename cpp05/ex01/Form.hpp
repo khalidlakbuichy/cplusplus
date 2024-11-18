@@ -27,7 +27,6 @@ class Form
 
         // Methods:
         void beSigned(const Bureaucrat &bureaucrat);
-        void signForm(const Bureaucrat &bureaucrat);
 
         // Exceptions:
         class GradeTooHighException : public std::exception

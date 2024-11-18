@@ -1,5 +1,4 @@
-#include "Bureaucrat.hpp"
-
+#include "Form.hpp"
 // Canonical form:
 Bureaucrat::Bureaucrat() : _name("unknown"), _grade(150) {}
 Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name), _grade(grade)
@@ -36,6 +35,19 @@ void Bureaucrat::decrementGrade()
     if (_grade == 150)
         throw Bureaucrat::GradeTooLowException();
     _grade++;
+}
+
+void Bureaucrat::signForm(Form &form)
+{
+    try
+    {
+        form.beSigned(*this);
+        std::cout << _name << " signed " << form.getName() << std::endl;
+    }
+    catch (Form::GradeTooLowException &e)
+    {
+        std::cout << _name << " couldn't sign  " << form.getName() << " because " << e.what() << std::endl;
+    }
 }
 
 // Exceptions:
