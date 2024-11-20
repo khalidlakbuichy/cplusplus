@@ -4,10 +4,17 @@
 Form::Form() : _name("unknown"), _signed(false), _signGrade(150), _execGrade(150) {}
 Form::Form(const std::string name, int signGrade, int execGrade) : _name(name), _signed(false), _signGrade(signGrade), _execGrade(execGrade)
 {
-    if (signGrade < 1 || execGrade < 1)
-        throw Form::GradeTooHighException();
-    if (signGrade > 150 || execGrade > 150)
-        throw Form::GradeTooLowException();
+    try
+    {
+        if (signGrade < 1 || execGrade < 1)
+            throw Form::GradeTooHighException();
+        if (signGrade > 150 || execGrade > 150)
+            throw Form::GradeTooLowException();
+    }
+    catch (std::exception &e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
 }
 Form::Form(const Form &copy) : _name(copy._name), _signed(copy._signed), _signGrade(copy._signGrade), _execGrade(copy._execGrade) {}
 Form &Form::operator=(const Form &other)
