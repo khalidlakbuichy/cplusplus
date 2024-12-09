@@ -2,7 +2,7 @@
 #include <string>
 #include <limits>
 #include <cstdlib>
-#include <cctype>
+#include <iomanip>
 
 #ifndef SCALARCONVERTER_HPP
 #define SCALARCONVERTER_HPP
@@ -26,14 +26,14 @@ class ScalarConverter
         ScalarConverter &operator=(ScalarConverter const &other);
         ~ScalarConverter();
         // heplful function:
-
-    public:
-        static ScalarType getType(std::string &input);
+        static ScalarType getType(const std::string &input);
         static void convertChar(std::string &input);
         static void convertInt(std::string &input);
         static void convertFloat(std::string &input);
         static void convertDouble(std::string &input);
         static void convertPseudoLiteral(std::string &input);
+
+    public:
         static void convert(std::string &input);
     
 };
