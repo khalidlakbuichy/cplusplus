@@ -1,10 +1,10 @@
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = main.cpp  SerializationConverter.cpp
+SRCS = main.cpp
 OBJS = $(SRCS:.cpp=.o)
 
-NAME = serialize
+NAME = dynamic
 
 all: $(NAME)
 
