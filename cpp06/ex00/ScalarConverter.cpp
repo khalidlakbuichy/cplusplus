@@ -32,7 +32,8 @@ ScalarType ScalarConverter::getType(const std::string &input) {
     size_t i = 0;
     if (input[i] == '+' || input[i] == '-') i++; // Skip leading sign
     if (i < input.size() && std::isdigit(input[i])) { // Ensure digits follow the sign
-        while (i < input.size() && std::isdigit(input[i])) i++;
+        while (i < input.size() && std::isdigit(input[i])) 
+            i++;
         if (i == input.size())
             return INT;
     }

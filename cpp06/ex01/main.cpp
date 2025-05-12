@@ -6,6 +6,7 @@ int main(void)
 	uintptr_t serialized = SerializationConverter::serialize(&data);
 	Data *deserialized = SerializationConverter::deserialize(serialized);
 
+	std::cout << "Original Data: " << &data << std::endl;
 	std::cout << "Data: " << *deserialized << std::endl;
 
 	return 0;
