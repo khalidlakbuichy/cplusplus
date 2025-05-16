@@ -24,13 +24,13 @@ class Array {
         ~Array() {
             delete[] _array;
         }
-        Array &operator=(Array const &rhs) {
-            if (this != &rhs) {
+        Array &operator=(Array const &other) {
+            if (this != &other) {
                 delete[] _array;
-                _array = new T[rhs._size];
-                _size = rhs._size;
+                _array = new T[other._size];
+                _size = other._size;
                 for (unsigned int i = 0; i < _size; i++) {
-                    _array[i] = rhs._array[i];
+                    _array[i] = other._array[i];
                 }
             }
             return *this;
